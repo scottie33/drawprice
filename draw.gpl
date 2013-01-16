@@ -1,0 +1,77 @@
+reset
+
+fn='prices'
+
+dtflname=fn.'.dat'
+
+
+set term post enh size 8,4.5
+#set out fn.'.eps'
+#set term X11 size 640,360 #16:9 nice look
+set multiplot
+#unset key
+#set title 
+set xlabel '' #font "Arial,16"# tc rgb "#0000ff"
+#set encoding default
+#set ylabel 'Market Price ($)' #font "UTF-8,16"# tc rgb "#880000"
+#set xrange [0:]
+#set yrange [0:500]
+
+#set xtics nomirror #font "UTF-8,12" #tc rgb "#0000ff"
+#set xtics ("" log(4), "log(8)" log(8), "log(16)" log(16), "log(32)" log(32), "log(64)" log(64), "log(128)" log(128), "" log(256))
+#temptitle=sprintf("fitted line with a=%f",a)
+#set mxtics 5
+set mytics 5
+#set grid ytics
+#set key left
+#xmid=(xhigh+xlow)/3.0
+#ymid=g(xmid)+0.3
+#set arrow 1 from xlow,ylow to xhigh,yhigh nohead lt 4 lw 1 lc rgb "black"
+#set label 1 at xmid,ymid "k=0.5" center font "UTF-8,15"
+#plot f(x) t temptitle w l lt 1 lw 1 lc rgb "black", \
+
+
+
+font_size=12
+scale_width=0.8
+ftszstring='System, '.sprintf("%d",font_size*scale_width).', Bold'
+
+set key outside
+#set key font ftszstring
+#set key outside
+set key spacing 1.5
+#set key box
+#set offsets <left>, <right>, <top>, <bottom>
+#set offsets graph <left>, <right>, <top>, <bottom>
+set xtics scale 0 rotate by -30# font ftszstring
+set ytics scale 0 rotate by 0# font ftszstring #tc rgb "#880000"
+set xtics out offset 0,0
+
+set offsets graph 0,0,5,0
+set style histogram clustered gap 1 #title offset character 0, 0, 0
+set style fill solid 0.35 noborder
+#set style histogram rowstacked 
+
+set boxwidth scale_width relative
+set style data histograms
+
+dollar(i)='$'.sprintf("%5.1f",i)
+
+#set ylabel 'Market Price ($)' #font "UTF-8,16"# tc rgb "#880000"
+#plot dtflname u 4 t "Lowest" lc rgb 'gray', '' using ($0-0.25):($4):(dollar($4)) with labels notitle font ftszstring rotate by 30, \
+#     '' u 2:xticlabels(1) t "MSRP" lc rgb 'brown', '' using 0:($2):(dollar($2)) with labels notitle font ftszstring rotate by 30, \
+#     '' u 3 t "Highest" lc rgb 'black', '' using ($0+0.25):($3):(dollar($3)) with labels notitle font ftszstring rotate by 30
+
+
+#plot dtflname u 2:xticlabels(1) t "" w l lt 1 lw 4 lc rgb "black"
+
+#, \
+#     dtflname u 2:3:4 t "" with errorbars
+
+     #, \
+     #dtflname u 1:2 t "" w p pt 5
+
+
+#unset multiplot
+
+
