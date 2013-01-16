@@ -1,0 +1,19 @@
+[prices.dat] format:
+
+#brand br1 br2 ...
+item1 price price ...
+item2 price price ...
+...
+...
+
+./drawprice.py ;#(will call drawprice.gpl)
+and also there is a matrix invert tool:
+./invert_mtx.py
+in case you dont satisfy with your matrix in [prices.dat].
+
+all rights reserved.
+
+anyone who wants to use it, please contact:
+scottie.odom@gmail.com
+
+cheers.
